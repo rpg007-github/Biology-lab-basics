@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Lab — Essential Study Reference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f9f7f4;--bg-card:#fff;--text:#2c2c2c;--text-muted:#6b6b6b;--accent:#7b2d8e;--accent-dark:#5e1f6e;--accent-light:#f3e8f7;--border:#e2ddd6;--border-light:#f0ece6;--highlight:#fef8e6;--highlight-border:#e8c84a;--mnemonic-bg:#edf7ee;--mnemonic-border:#6bbd72;--formula-bg:#f0ecf8;--formula-border:#9b7ec8;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);--shadow-hover:0 2px 8px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.06)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+    .hero{background:linear-gradient(135deg,#3d1550 0%,#7b2d8e 40%,#9b4dba 100%);color:#fff;padding:4rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.02em;position:relative}
+    .hero .subtitle{font-size:1.15rem;opacity:.85;margin-top:.5rem;font-weight:300;position:relative}
+    .hero .tagline{display:inline-block;margin-top:1rem;background:rgba(255,255,255,.15);padding:.35rem 1.2rem;border-radius:20px;font-size:.85rem;font-weight:500;letter-spacing:.03em;position:relative}
+    .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .toc{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2.5rem;box-shadow:var(--shadow)}
+    .toc h2{font-family:'Crimson Pro',serif;font-size:1.5rem;color:var(--accent);margin-bottom:1rem;font-weight:600}
+    .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.5rem}
+    .toc-grid a{display:block;padding:.5rem .75rem;color:var(--text);text-decoration:none;border-radius:6px;font-size:.95rem;transition:all .2s}
+    .toc-grid a:hover{background:var(--accent-light);color:var(--accent)}
+    .toc-grid a .toc-num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);margin-right:.5rem;font-weight:500}
+    .section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem 2rem 1.75rem;margin-bottom:2rem;box-shadow:var(--shadow);transition:box-shadow .3s,transform .3s}
+    .section-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+    .section-card h2{font-family:'Crimson Pro',serif;font-size:1.6rem;color:var(--accent);margin-bottom:.25rem;font-weight:600;display:flex;align-items:center;gap:.6rem}
+    .section-card h2 .sec-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--accent);color:#fff;padding:.15rem .55rem;border-radius:4px;font-weight:500}
+    .section-card h3{font-family:'Crimson Pro',serif;font-size:1.2rem;color:var(--accent-dark);margin:1.4rem 0 .5rem;font-weight:600}
+    .section-card p{margin-bottom:.8rem;line-height:1.75}
+    .fact-table{width:100%;border-collapse:collapse;margin:1rem 0 1.25rem;font-size:.92rem}
+    .fact-table th{background:var(--accent);color:#fff;padding:.6rem .8rem;text-align:left;font-weight:600;font-size:.85rem;letter-spacing:.03em}
+    .fact-table th:first-child{border-radius:6px 0 0 0}.fact-table th:last-child{border-radius:0 6px 0 0}
+    .fact-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border-light)}
+    .fact-table tr:nth-child(even) td{background:#faf8f5}
+    .fact-table tr:hover td{background:var(--accent-light)}
+    .fact-table code{font-family:'JetBrains Mono',monospace;font-size:.85rem;background:var(--formula-bg);padding:.1rem .4rem;border-radius:3px}
+    .formula-box{background:var(--formula-bg);border-left:4px solid var(--formula-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+    .formula-box .formula-label{font-family:'Crimson Pro',serif;font-weight:600;color:var(--accent-dark);font-size:.9rem;margin-bottom:.3rem}
+    .formula-box code{font-family:'JetBrains Mono',monospace;font-size:.95rem;display:block;margin-top:.3rem}
+    .mnemonic-box{background:var(--mnemonic-bg);border-left:4px solid var(--mnemonic-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+    .mnemonic-box .mnemonic-label{font-family:'Crimson Pro',serif;font-weight:600;color:#2d7a36;font-size:.9rem;margin-bottom:.3rem}
+    .highlight-box{background:var(--highlight);border-left:4px solid var(--highlight-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+    .highlight-box strong{color:#8a6d0b}
+    .interactive-section{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+    .interactive-section h2{font-family:'Crimson Pro',serif;font-size:1.6rem;color:var(--accent);margin-bottom:1rem;font-weight:600}
+    .quiz-progress{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;font-size:.9rem;color:var(--text-muted)}
+    .quiz-progress-bar{flex:1;height:8px;background:var(--border-light);border-radius:4px;overflow:hidden}
+    .quiz-progress-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .4s;width:0}
+    .quiz-score{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--accent)}
+    .quiz-question p{font-weight:600;margin-bottom:.75rem;font-size:1.02rem}
+    .quiz-options label{display:block;padding:.65rem 1rem;margin-bottom:.4rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95rem}
+    .quiz-options label:hover{background:var(--accent-light);border-color:var(--accent)}
+    .quiz-options input[type="radio"]{margin-right:.6rem}
+    .quiz-options label.correct{background:#e8f5e9;border-color:#4caf50}
+    .quiz-options label.incorrect{background:#ffeef0;border-color:#e57373}
+    .quiz-explanation{margin-top:.75rem;padding:.75rem 1rem;background:#f5f3ff;border-radius:8px;font-size:.9rem;color:#555;display:none}
+    .quiz-btn{display:inline-block;padding:.6rem 1.5rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.95rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-weight:500;transition:background .2s;margin-top:.5rem}
+    .quiz-btn:hover{background:var(--accent-dark)}
+    .quiz-nav{display:flex;gap:.75rem;margin-top:1rem}
+    .quiz-result{text-align:center;padding:2rem}
+    .quiz-result h3{font-family:'Crimson Pro',serif;font-size:1.8rem;color:var(--accent);margin-bottom:.5rem}
+    .fc-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+    .fc-filter-btn{padding:.4rem 1rem;border:1px solid var(--border);background:#fff;border-radius:20px;font-size:.85rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
+    .fc-filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .fc-filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .fc-container{display:flex;flex-direction:column;align-items:center}
+    .fc-card-wrapper{width:100%;max-width:500px;height:300px;perspective:1200px;margin-bottom:1rem;cursor:pointer}
+    .fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s}
+    .fc-card.flipped{transform:rotateY(180deg)}
+    .fc-front,.fc-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;text-align:center}
+    .fc-front{background:linear-gradient(135deg,var(--accent-light),#f8f0fc);border:2px solid var(--accent)}
+    .fc-front .fc-category{position:absolute;top:1rem;left:1rem;font-size:.75rem;font-family:'JetBrains Mono',monospace;background:var(--accent);color:#fff;padding:.15rem .6rem;border-radius:4px}
+    .fc-front p{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:600;color:var(--accent-dark)}
+    .fc-back{background:var(--accent);color:#fff;transform:rotateY(180deg)}
+    .fc-back p{font-size:1.05rem;line-height:1.6}
+    .fc-controls{display:flex;align-items:center;gap:1rem}
+    .fc-nav-btn{padding:.5rem 1.2rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background .2s}
+    .fc-nav-btn:hover{background:var(--accent-dark)}
+    .fc-counter{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--text-muted)}
+    .sa-question{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-light)}
+    .sa-question:last-child{border-bottom:none}
+    .sa-question p.sa-prompt{font-weight:600;margin-bottom:.75rem;font-size:1.02rem}
+    .sa-question textarea{width:100%;min-height:80px;padding:.75rem 1rem;border:1px solid var(--border);border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:.95rem;resize:vertical;transition:border-color .2s}
+    .sa-question textarea:focus{outline:none;border-color:var(--accent)}
+    .sa-feedback{margin-top:.75rem;display:none}
+    .sa-score-bar{height:10px;background:var(--border-light);border-radius:5px;overflow:hidden;margin-bottom:.6rem}
+    .sa-score-fill{height:100%;border-radius:5px;transition:width .5s}
+    .sa-score-text{font-family:'JetBrains Mono',monospace;font-size:.85rem;margin-bottom:.5rem}
+    .sa-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem}
+    .sa-tag{padding:.2rem .65rem;border-radius:4px;font-size:.8rem;font-weight:500}
+    .sa-tag.hit{background:#e8f5e9;color:#2e7d32}
+    .sa-tag.miss{background:#f0f0f0;color:#888}
+    .sa-model-toggle{background:none;border:none;color:var(--accent);cursor:pointer;font-size:.9rem;font-family:'Source Sans 3',sans-serif;font-weight:500;padding:0}
+    .sa-model-toggle:hover{text-decoration:underline}
+    .sa-model-answer{margin-top:.5rem;padding:.75rem 1rem;background:#f5f3ff;border-radius:8px;font-size:.9rem;display:none;line-height:1.65}
+    .back-to-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);opacity:0;transition:opacity .3s;z-index:100}
+    .back-to-top.visible{opacity:1}
+    @media(max-width:768px){.container{padding:1.25rem 1rem 3rem}.section-card{padding:1.5rem}.toc-grid{grid-template-columns:1fr}.fact-table{font-size:.85rem}.fact-table th,.fact-table td{padding:.4rem .5rem}.fc-card-wrapper{height:260px}}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Biology I Lab</h1>
+  <div class="subtitle">Essential Study Reference</div>
+  <div class="tagline">The facts you just know</div>
+</div>
+
+<div class="container">
+
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <a href="#sci-method"><span class="toc-num">01</span>Scientific Method</a>
+    <a href="#measurement"><span class="toc-num">02</span>Measurement &amp; Lab Equipment</a>
+    <a href="#microscopy"><span class="toc-num">03</span>Microscopy</a>
+    <a href="#biomolecules"><span class="toc-num">04</span>Biological Molecules &amp; Nutrition</a>
+    <a href="#cells"><span class="toc-num">05</span>Cell Structure &amp; Function</a>
+    <a href="#transport"><span class="toc-num">06</span>Membrane Transport</a>
+    <a href="#enzymes"><span class="toc-num">07</span>Enzymes</a>
+    <a href="#cell-cycle"><span class="toc-num">08</span>Cell Cycle &amp; Cell Division</a>
+    <a href="#genetics"><span class="toc-num">09</span>Genetics &amp; Inheritance</a>
+    <a href="#dna-molbio"><span class="toc-num">10</span>DNA, RNA &amp; Molecular Biology</a>
+    <a href="#dna-tech"><span class="toc-num">11</span>DNA Technology &amp; Recombination</a>
+    <a href="#evolution"><span class="toc-num">12</span>Evolution &amp; Natural Selection</a>
+    <a href="#quiz"><span class="toc-num">Q</span>Multiple Choice Quiz</a>
+    <a href="#flashcards"><span class="toc-num">F</span>Flashcards</a>
+    <a href="#short-answer"><span class="toc-num">SA</span>Short Answer Practice</a>
+  </div>
+</div>
+
+<!-- ============ SECTION 01 ============ -->
+<div class="section-card" id="sci-method">
+  <h2><span class="sec-num">01</span>Scientific Method</h2>
+  <p>The scientific method is the systematic process scientists use to investigate the natural world. Every experiment starts with an observation, moves to a testable hypothesis, and ends with data that either supports or fails to support the hypothesis. You never "prove" a hypothesis in science; you support it or reject it.</p>
+  <h3>Steps of the Scientific Method</h3>
+  <p>The process flows from observation to question to hypothesis to experiment to data analysis to conclusion. A good hypothesis is testable, falsifiable, and written as an if/then statement. The purpose of an experiment is to test a hypothesis under controlled conditions so that cause-and-effect relationships can be identified.</p>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Mnemonic</div>
+    <strong>Oh Quit Harassing Every Dog, Cat</strong> for Observation, Question, Hypothesis, Experiment, Data, Conclusion.
+  </div>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th><th>Example</th></tr>
+    <tr><td>Independent variable</td><td>What you intentionally change</td><td>Amount of fertilizer</td></tr>
+    <tr><td>Dependent variable</td><td>What you measure in response</td><td>Plant height</td></tr>
+    <tr><td>Control group</td><td>No treatment (baseline)</td><td>Plants with no fertilizer</td></tr>
+    <tr><td>Experimental group</td><td>Receives the treatment</td><td>Plants with fertilizer</td></tr>
+    <tr><td>Constants (controlled variables)</td><td>Everything kept the same</td><td>Light, water, soil type</td></tr>
+    <tr><td>Positive control</td><td>Expected to produce a known result</td><td>Known enzyme + substrate</td></tr>
+    <tr><td>Negative control</td><td>Expected to show no response</td><td>Water instead of enzyme</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Theory vs. hypothesis:</strong> A hypothesis is a testable prediction. A theory is a well-tested, widely accepted explanation supported by extensive evidence (e.g., cell theory, theory of evolution). A theory is not a guess.
+  </div>
+</div>
+
+<!-- ============ SECTION 02 ============ -->
+<div class="section-card" id="measurement">
+  <h2><span class="sec-num">02</span>Measurement &amp; Lab Equipment</h2>
+  <p>Biology labs use the metric (SI) system exclusively. You need to define and measure length, volume, mass, density, and temperature, and know which tool corresponds to each measurement.</p>
+  <h3>Metric Prefixes</h3>
+  <table class="fact-table">
+    <tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Example</th></tr>
+    <tr><td>kilo-</td><td>k</td><td>1,000</td><td>1 kg = 1,000 g</td></tr>
+    <tr><td>centi-</td><td>c</td><td>0.01</td><td>1 m = 100 cm</td></tr>
+    <tr><td>milli-</td><td>m</td><td>0.001</td><td>1 L = 1,000 mL</td></tr>
+    <tr><td>micro-</td><td>&mu;</td><td>0.000001</td><td>1 mm = 1,000 &mu;m</td></tr>
+    <tr><td>nano-</td><td>n</td><td>10&#8315;&#8313;</td><td>1 &mu;m = 1,000 nm</td></tr>
+  </table>
+  <h3>Lab Equipment</h3>
+  <table class="fact-table">
+    <tr><th>Equipment</th><th>Measures</th><th>Key Notes</th></tr>
+    <tr><td>Graduated cylinder</td><td>Volume (mL)</td><td>Read at the bottom of the meniscus at eye level</td></tr>
+    <tr><td>Beaker</td><td>Approximate volume</td><td>Not for precise measurement; for mixing/holding</td></tr>
+    <tr><td>Erlenmeyer flask</td><td>Approximate volume</td><td>Narrow neck reduces spills during swirling</td></tr>
+    <tr><td>Pipettes (serological, micropipette)</td><td>Precise small volumes</td><td>Serological for mL range; micropipette for &mu;L range</td></tr>
+    <tr><td>Balance / scale</td><td>Mass (g)</td><td>Always zero/tare before measuring</td></tr>
+    <tr><td>Thermometer</td><td>Temperature (&deg;C)</td><td>Biology uses Celsius exclusively</td></tr>
+    <tr><td>Ruler / caliper</td><td>Length (mm, cm, m)</td><td>Record to one decimal beyond smallest graduation</td></tr>
+  </table>
+  <div class="formula-box">
+    <div class="formula-label">Density</div>
+    <code>Density = Mass / Volume</code>
+    <br><br>Units are typically g/mL or g/cm&sup3;. Water density = 1.0 g/mL at room temperature. Objects with density greater than water sink; less than water float.
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Temperature Conversion</div>
+    <code>&deg;C = (&deg;F - 32) &times; 5/9</code>
+    <br><code>&deg;F = (&deg;C &times; 9/5) + 32</code>
+    <br><br>Water freezes at 0&deg;C (32&deg;F). Water boils at 100&deg;C (212&deg;F). Human body temp &asymp; 37&deg;C.
+  </div>
+  <div class="highlight-box">
+    <strong>Advantages of the metric system:</strong> All conversions are based on powers of ten, making it universal, simple, and consistent. The metric system eliminates the need for complex conversion factors between units.
+  </div>
+</div>
+
+<!-- ============ SECTION 03 ============ -->
+<div class="section-card" id="microscopy">
+  <h2><span class="sec-num">03</span>Microscopy</h2>
+  <p>You need to know how to care for, use, and calculate magnification on a compound microscope, how to prepare a wet mount, and the differences between light and electron microscopes.</p>
+  <div class="formula-box">
+    <div class="formula-label">Total Magnification</div>
+    <code>Total Magnification = Ocular Lens Power &times; Objective Lens Power</code>
+    <br><br>Standard ocular = 10&times;. With a 40&times; objective, total magnification = 400&times;.
+  </div>
+  <h3>Objective Lenses</h3>
+  <table class="fact-table">
+    <tr><th>Objective</th><th>Power</th><th>Total (10&times; ocular)</th><th>Use</th></tr>
+    <tr><td>Scanning</td><td>4&times;</td><td>40&times;</td><td>Find the specimen</td></tr>
+    <tr><td>Low power</td><td>10&times;</td><td>100&times;</td><td>Overview of tissue/cells</td></tr>
+    <tr><td>High power</td><td>40&times;</td><td>400&times;</td><td>Cellular detail</td></tr>
+    <tr><td>Oil immersion</td><td>100&times;</td><td>1000&times;</td><td>Bacteria, fine detail</td></tr>
+  </table>
+  <h3>Key Microscope Terms</h3>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Magnification</td><td>How much larger an image appears compared to actual size</td></tr>
+    <tr><td>Resolving power (resolution)</td><td>Ability to distinguish two close objects as separate; determines image clarity</td></tr>
+    <tr><td>Contrast</td><td>Difference in brightness between specimen and background; staining improves contrast</td></tr>
+    <tr><td>Field of view</td><td>The circular area visible through the eyepiece; decreases as magnification increases</td></tr>
+    <tr><td>Parfocal</td><td>Objectives are parfocal if specimen stays roughly in focus when switching between them</td></tr>
+    <tr><td>Parcentral</td><td>Specimen stays roughly centered when switching objectives</td></tr>
+    <tr><td>Working distance</td><td>Space between the objective lens and the slide; decreases at higher magnification</td></tr>
+    <tr><td>Depth of field</td><td>Thickness of the specimen in focus at once; decreases at higher magnification</td></tr>
+  </table>
+  <h3>Types of Microscopes</h3>
+  <table class="fact-table">
+    <tr><th>Type</th><th>Uses</th><th>Key Feature</th></tr>
+    <tr><td>Compound light</td><td>Stained/living thin sections</td><td>Visible light; up to ~1000&times;; most common in lab</td></tr>
+    <tr><td>Phase-contrast</td><td>Living, unstained cells</td><td>Converts phase differences in light to contrast differences; no staining needed</td></tr>
+    <tr><td>Transmission electron (TEM)</td><td>Internal cell ultrastructure</td><td>2D image; up to 500,000&times;; electron beam through specimen</td></tr>
+    <tr><td>Scanning electron (SEM)</td><td>Surface detail</td><td>3D image of surfaces; electrons bounce off specimen</td></tr>
+  </table>
+  <h3>Microscope Care &amp; Use</h3>
+  <p>Always carry with two hands (one on the arm, one under the base). Start on the lowest objective when focusing a new slide. Use the coarse adjustment knob only on scanning and low power. On high power, use fine adjustment only to avoid cracking the slide. Clean lenses only with lens paper. Store with the lowest objective clicked in place and the stage lowered.</p>
+  <h3>Making a Wet Mount</h3>
+  <p>Place the specimen in a drop of water on a clean slide. Lower a coverslip at an angle (about 45 degrees) to one edge of the water drop, then slowly release it to minimize air bubbles. The water spreads between the slide and coverslip, keeping the specimen flat, hydrated, and transparent enough for light to pass through.</p>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Remember</div>
+    Microscope images are <strong>inverted and reversed</strong>. To move the image right, move the slide left. To move it up, move the slide down. Move the slide in the same direction the image appears to center it.
+  </div>
+</div>
+
+<!-- ============ SECTION 04 ============ -->
+<div class="section-card" id="biomolecules">
+  <h2><span class="sec-num">04</span>Biological Molecules &amp; Nutrition</h2>
+  <p>There are four major classes of biological macromolecules. Each is built from smaller monomers joined by dehydration synthesis (removes water) and broken apart by hydrolysis (adds water). You also need to know key nutritional terms like vitamins, minerals, and calories.</p>
+  <h3>The Four Macromolecules</h3>
+  <table class="fact-table">
+    <tr><th>Macromolecule</th><th>Monomer</th><th>Elements</th><th>Functions</th><th>Lab Test</th></tr>
+    <tr><td>Carbohydrates</td><td>Monosaccharides</td><td>C, H, O</td><td>Quick energy, structure</td><td>Benedict's (sugars), Iodine (starch)</td></tr>
+    <tr><td>Lipids</td><td>Glycerol + fatty acids</td><td>C, H, O</td><td>Long-term energy, membranes, insulation</td><td>Brown paper bag / Sudan IV</td></tr>
+    <tr><td>Proteins</td><td>Amino acids</td><td>C, H, O, N, (S)</td><td>Enzymes, structure, transport, defense</td><td>Biuret (turns purple)</td></tr>
+    <tr><td>Nucleic acids</td><td>Nucleotides</td><td>C, H, O, N, P</td><td>Genetic information (DNA, RNA)</td><td>Dische diphenylamine</td></tr>
+  </table>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Lab Test Results to Memorize</div>
+    <strong>Benedict's:</strong> blue (neg) &rarr; orange/red (pos for simple sugars; must heat). <strong>Iodine:</strong> yellow-brown (neg) &rarr; blue-black (pos for starch). <strong>Biuret:</strong> blue (neg) &rarr; purple/violet (pos for protein). <strong>Sudan IV / paper bag:</strong> translucent spot or red-stained (pos for lipids).
+  </div>
+  <h3>Carbohydrate Details</h3>
+  <p>Monosaccharides (simple sugars) include glucose, fructose, and galactose. Disaccharides form when two monosaccharides bond: sucrose (glucose + fructose), lactose (glucose + galactose), maltose (glucose + glucose). Polysaccharides include starch (plant energy storage), glycogen (animal energy storage), cellulose (plant cell wall structure), and chitin (arthropod exoskeletons, fungal cell walls).</p>
+  <h3>Lipid Details</h3>
+  <p>A triglyceride is one glycerol bonded to three fatty acids. Saturated fats have no double bonds between carbons, pack tightly, and are solid at room temperature (butter, animal fat). Unsaturated fats have one or more double bonds, creating kinks, and are liquid at room temperature (olive oil). Phospholipids have a hydrophilic head and two hydrophobic tails, making them ideal for cell membranes.</p>
+  <h3>Protein Structure</h3>
+  <p>Twenty amino acids are used in living things, linked by peptide bonds. Protein structure has four levels: primary (amino acid sequence), secondary (alpha helices and beta pleated sheets from hydrogen bonding), tertiary (3D folding from R-group interactions), and quaternary (multiple polypeptide subunits). Denaturing a protein destroys its shape but not its peptide bonds; caused by extreme heat, pH, or heavy metals.</p>
+  <div class="formula-box">
+    <div class="formula-label">Bond Reactions</div>
+    <code>Dehydration synthesis: monomer + monomer &rarr; polymer + H&#8322;O</code>
+    <br><code>Hydrolysis: polymer + H&#8322;O &rarr; monomer + monomer</code>
+  </div>
+  <h3>Nutritional Terms</h3>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Calorie (kcal)</td><td>Unit of energy. One dietary Calorie (capital C) = 1 kilocalorie = energy to raise 1 kg of water by 1&deg;C. Carbs and proteins provide ~4 kcal/g; fats provide ~9 kcal/g.</td></tr>
+    <tr><td>Vitamin</td><td>Organic molecule needed in small amounts for metabolism. The body cannot synthesize most vitamins, so they must come from the diet. Examples: vitamin C (collagen synthesis), vitamin D (calcium absorption).</td></tr>
+    <tr><td>Mineral</td><td>Inorganic element required for body functions. Examples: calcium (bones, muscle contraction), iron (hemoglobin), potassium (nerve impulses). Unlike vitamins, minerals are elements, not complex molecules.</td></tr>
+  </table>
+</div>
+
+<!-- ============ SECTION 05 ============ -->
+<div class="section-card" id="cells">
+  <h2><span class="sec-num">05</span>Cell Structure &amp; Function</h2>
+  <p>Cell theory states that all living things are made of cells, the cell is the basic unit of life, and all cells come from pre-existing cells. You need to know the differences between prokaryotic and eukaryotic cells, between plant and animal cells, and the function of every major organelle.</p>
+  <h3>Prokaryotic vs. Eukaryotic</h3>
+  <table class="fact-table">
+    <tr><th>Feature</th><th>Prokaryotic</th><th>Eukaryotic</th></tr>
+    <tr><td>Nucleus</td><td>No (nucleoid region)</td><td>Yes (membrane-bound)</td></tr>
+    <tr><td>Size</td><td>1-10 &mu;m</td><td>10-100 &mu;m</td></tr>
+    <tr><td>Membrane-bound organelles</td><td>None</td><td>Many</td></tr>
+    <tr><td>DNA</td><td>Circular, in cytoplasm</td><td>Linear chromosomes, in nucleus</td></tr>
+    <tr><td>Ribosomes</td><td>70S</td><td>80S</td></tr>
+    <tr><td>Cell wall</td><td>Peptidoglycan (bacteria)</td><td>Cellulose (plants), chitin (fungi), or none (animals)</td></tr>
+    <tr><td>Examples</td><td>Bacteria, Archaea, cyanobacteria</td><td>Animals, plants, fungi, protists</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Cyanobacteria</strong> are prokaryotes that perform photosynthesis. They are sometimes called blue-green algae but are bacteria, not true algae. They have no chloroplasts; instead, their photosynthetic membranes (thylakoids) are in the cytoplasm. They were likely the first organisms to produce oxygen on Earth.
+  </div>
+  <h3>Plant Cell vs. Animal Cell</h3>
+  <table class="fact-table">
+    <tr><th>Feature</th><th>Animal Cell</th><th>Plant Cell</th></tr>
+    <tr><td>Cell wall</td><td>Absent</td><td>Present (cellulose)</td></tr>
+    <tr><td>Chloroplasts</td><td>Absent</td><td>Present</td></tr>
+    <tr><td>Central vacuole</td><td>Small or absent</td><td>Large, central</td></tr>
+    <tr><td>Centrioles</td><td>Present</td><td>Usually absent</td></tr>
+    <tr><td>Lysosomes</td><td>Present</td><td>Rare</td></tr>
+    <tr><td>Shape</td><td>Round / irregular</td><td>Rectangular / rigid</td></tr>
+  </table>
+  <h3>Organelle Functions</h3>
+  <table class="fact-table">
+    <tr><th>Organelle</th><th>Function</th></tr>
+    <tr><td>Nucleus</td><td>Contains DNA; controls cell activities</td></tr>
+    <tr><td>Plasma membrane</td><td>Selectively permeable barrier (phospholipid bilayer)</td></tr>
+    <tr><td>Ribosome</td><td>Protein synthesis (found free or on rough ER)</td></tr>
+    <tr><td>Rough ER</td><td>Protein processing and transport (studded with ribosomes)</td></tr>
+    <tr><td>Smooth ER</td><td>Lipid synthesis, detoxification</td></tr>
+    <tr><td>Golgi apparatus</td><td>Modify, sort, package, and ship proteins</td></tr>
+    <tr><td>Mitochondrion</td><td>Cellular respiration (ATP production); "powerhouse"</td></tr>
+    <tr><td>Chloroplast</td><td>Photosynthesis (plants/algae only)</td></tr>
+    <tr><td>Lysosome</td><td>Intracellular digestion of waste and worn-out organelles</td></tr>
+    <tr><td>Central vacuole</td><td>Water/waste storage, turgor pressure (plants)</td></tr>
+    <tr><td>Cell wall</td><td>Rigid support and protection outside the membrane</td></tr>
+    <tr><td>Cytoskeleton</td><td>Shape, support, intracellular transport (microfilaments, microtubules)</td></tr>
+    <tr><td>Nuclear envelope</td><td>Double membrane surrounding nucleus with nuclear pores</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Cytoplasmic streaming</strong> is the directed flow of cytoplasm within a cell, visible in plant cells like Elodea. It moves organelles, nutrients, and proteins through the cell using the cytoskeleton (actin microfilaments and motor proteins). You may observe it under the microscope as chloroplasts moving in a circular pattern around the cell.
+  </div>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Endosymbiotic Theory</div>
+    Mitochondria and chloroplasts were once free-living prokaryotes engulfed by ancestral eukaryotic cells. Evidence: both have their own <strong>circular DNA</strong>, <strong>70S ribosomes</strong>, <strong>double membranes</strong>, and divide by <strong>binary fission</strong>.
+  </div>
+</div>
+
+<!-- ============ SECTION 06 ============ -->
+<div class="section-card" id="transport">
+  <h2><span class="sec-num">06</span>Membrane Transport</h2>
+  <p>The plasma membrane is selectively permeable, meaning it allows some substances through but not others. Transport can be passive (no energy) or active (requires ATP).</p>
+  <h3>Tonicity</h3>
+  <table class="fact-table">
+    <tr><th>Solution</th><th>Solute Comparison</th><th>Water Movement</th><th>Animal Cell</th><th>Plant Cell</th></tr>
+    <tr><td>Hypotonic</td><td>Less solute outside</td><td>Water moves IN</td><td>Swells, may lyse (burst)</td><td>Turgid (ideal, firm)</td></tr>
+    <tr><td>Isotonic</td><td>Equal solute</td><td>No net movement</td><td>Normal</td><td>Flaccid (limp)</td></tr>
+    <tr><td>Hypertonic</td><td>More solute outside</td><td>Water moves OUT</td><td>Crenation (shrivels)</td><td>Plasmolysis</td></tr>
+  </table>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Mnemonic</div>
+    <strong>"Salt sucks"</strong> or <strong>"water follows the solute."</strong> Water moves toward the side with more solute. Hypo = below, Hyper = above, Iso = same.
+  </div>
+  <h3>Types of Transport</h3>
+  <table class="fact-table">
+    <tr><th>Type</th><th>Energy?</th><th>Description</th></tr>
+    <tr><td>Simple diffusion</td><td>No</td><td>Small nonpolar molecules pass directly through the membrane</td></tr>
+    <tr><td>Facilitated diffusion</td><td>No</td><td>Channel or carrier proteins assist polar/large molecules (still down gradient)</td></tr>
+    <tr><td>Osmosis</td><td>No</td><td>Diffusion of water through aquaporins or the membrane</td></tr>
+    <tr><td>Active transport</td><td>Yes (ATP)</td><td>Pump proteins move molecules against the gradient (low &rarr; high)</td></tr>
+    <tr><td>Endocytosis</td><td>Yes</td><td>Cell engulfs material (phagocytosis = solids, pinocytosis = liquids)</td></tr>
+    <tr><td>Exocytosis</td><td>Yes</td><td>Cell expels material by vesicle fusing with membrane</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Lab connection:</strong> Dialysis tubing demonstrates selective permeability. Starch (large molecule) stays inside the tubing while iodine (small molecule) passes through. Test with iodine (starch test) and Benedict's (sugar test) to confirm which molecules crossed.
+  </div>
+</div>
+<!-- ============ SECTION 07 ============ -->
+<div class="section-card" id="enzymes">
+  <h2><span class="sec-num">07</span>Enzymes</h2>
+  <p>An enzyme is a biological catalyst, almost always a protein, that speeds up chemical reactions without being consumed. Enzymes lower the activation energy needed for a reaction to proceed. Each enzyme is specific to its substrate because of the shape of its active site. The substrate binds the active site to form an enzyme-substrate complex, which then releases product. The enzyme is recycled and reused.</p>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Catalyst</td><td>A substance that speeds up a reaction without being used up</td></tr>
+    <tr><td>Activation energy</td><td>Minimum energy needed to start a reaction; enzymes lower this</td></tr>
+    <tr><td>Substrate</td><td>The molecule an enzyme acts on</td></tr>
+    <tr><td>Active site</td><td>Region of the enzyme where the substrate binds</td></tr>
+    <tr><td>Enzyme-substrate complex</td><td>Temporary structure formed when substrate binds the active site</td></tr>
+    <tr><td>Product</td><td>What is produced after the enzyme catalyzes the reaction</td></tr>
+    <tr><td>Enzyme specificity</td><td>Each enzyme fits only one substrate (or a small group), like a lock and key</td></tr>
+    <tr><td>Denaturation</td><td>Loss of 3D shape; the enzyme can no longer bind substrate (usually irreversible)</td></tr>
+  </table>
+  <div class="formula-box">
+    <div class="formula-label">Enzyme Reaction</div>
+    <code>E + S &rarr; ES complex &rarr; E + P</code>
+    <br>Enzyme is released unchanged and can catalyze the reaction again.
+  </div>
+  <h3>Factors Affecting Enzyme Activity</h3>
+  <table class="fact-table">
+    <tr><th>Factor</th><th>Effect</th></tr>
+    <tr><td>Temperature</td><td>Rate increases to an optimum (~37&deg;C for human enzymes), then drops sharply as the enzyme denatures</td></tr>
+    <tr><td>pH</td><td>Each enzyme has an optimum pH. Most: ~7. Pepsin: ~2. Trypsin: ~8. Extremes denature</td></tr>
+    <tr><td>Enzyme concentration</td><td>More enzyme = faster rate (if substrate is available)</td></tr>
+    <tr><td>Substrate concentration</td><td>Rate increases until all active sites are saturated (Vmax)</td></tr>
+    <tr><td>Competitive inhibitor</td><td>Mimics substrate; blocks the active site</td></tr>
+    <tr><td>Noncompetitive inhibitor</td><td>Binds allosteric site; changes enzyme shape so substrate cannot fit</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Lab connection:</strong> The catalase lab uses liver (source of catalase) and H&#8322;O&#8322; (substrate). Catalase breaks H&#8322;O&#8322; into water and O&#8322; gas (the bubbles). Boiled liver shows no reaction because the enzyme is denatured. Changing pH or temperature alters the rate.
+  </div>
+</div>
+
+<!-- ============ SECTION 08 ============ -->
+<div class="section-card" id="cell-cycle">
+  <h2><span class="sec-num">08</span>Cell Cycle &amp; Cell Division</h2>
+  <p>The cell cycle describes the life of a cell from one division to the next. It includes interphase (G1, S, G2) and the mitotic phase (mitosis + cytokinesis). Interphase accounts for roughly 90% of the cell cycle. DNA replication occurs during the S (synthesis) phase.</p>
+  <h3>Events of the Cell Cycle</h3>
+  <table class="fact-table">
+    <tr><th>Phase</th><th>Key Events</th></tr>
+    <tr><td>G1 (Gap 1)</td><td>Cell growth, normal functions, organelle production</td></tr>
+    <tr><td>S (Synthesis)</td><td>DNA replication; each chromosome is duplicated into sister chromatids</td></tr>
+    <tr><td>G2 (Gap 2)</td><td>Preparation for division; more growth, organelle replication</td></tr>
+    <tr><td>Mitosis (M)</td><td>Nuclear division (PMAT)</td></tr>
+    <tr><td>Cytokinesis</td><td>Cytoplasm divides, producing two daughter cells</td></tr>
+  </table>
+  <h3>Mitosis Phases</h3>
+  <table class="fact-table">
+    <tr><th>Phase</th><th>Key Events</th><th>Chromosome Movement</th></tr>
+    <tr><td>Prophase</td><td>Chromatin condenses into visible chromosomes, nuclear envelope breaks down, spindle fibers form</td><td>Chromosomes become visible</td></tr>
+    <tr><td>Metaphase</td><td>Chromosomes align at the metaphase plate (cell equator)</td><td>Lined up in the middle</td></tr>
+    <tr><td>Anaphase</td><td>Sister chromatids separate, pulled to opposite poles by spindle fibers</td><td>Move apart to poles</td></tr>
+    <tr><td>Telophase</td><td>Nuclear envelopes reform, chromosomes decondense, spindle disappears</td><td>Arrive at poles</td></tr>
+  </table>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Mnemonic</div>
+    <strong>PMAT:</strong> Prophase, Metaphase, Anaphase, Telophase. <strong>M</strong>etaphase = <strong>M</strong>iddle. <strong>A</strong>naphase = <strong>A</strong>part.
+  </div>
+  <h3>Structures Involved</h3>
+  <table class="fact-table">
+    <tr><th>Structure</th><th>Role</th></tr>
+    <tr><td>Centrioles</td><td>Organize spindle fibers at the poles (animal cells)</td></tr>
+    <tr><td>Spindle fibers</td><td>Microtubules that attach to centromeres and pull chromatids apart</td></tr>
+    <tr><td>Centromere</td><td>Region where sister chromatids are joined; where spindle fibers attach</td></tr>
+    <tr><td>Cleavage furrow</td><td>Pinching of the membrane during cytokinesis in animal cells</td></tr>
+    <tr><td>Cell plate</td><td>Forms in the middle during cytokinesis in plant cells (becomes new cell wall)</td></tr>
+  </table>
+  <h3>Chromosome Numbers</h3>
+  <p>A diploid cell (2n) has two copies of each chromosome (one from each parent). Humans: 2n = 46. After mitosis, each daughter cell is still diploid (2n = 46). After meiosis I, cells are haploid (n = 23). After meiosis II, four haploid gametes exist. During mitosis, the chromosome number does not change. During meiosis, it is halved.</p>
+  <h3>Mitosis vs. Meiosis</h3>
+  <table class="fact-table">
+    <tr><th>Feature</th><th>Mitosis</th><th>Meiosis</th></tr>
+    <tr><td>Divisions</td><td>1</td><td>2 (meiosis I and II)</td></tr>
+    <tr><td>Daughter cells</td><td>2 identical, diploid</td><td>4 unique, haploid</td></tr>
+    <tr><td>Chromosome #</td><td>2n &rarr; 2n</td><td>2n &rarr; n</td></tr>
+    <tr><td>Crossing over</td><td>No</td><td>Yes (prophase I)</td></tr>
+    <tr><td>Independent assortment</td><td>No</td><td>Yes (metaphase I)</td></tr>
+    <tr><td>Purpose</td><td>Growth, repair</td><td>Gamete production</td></tr>
+    <tr><td>Genetic variation</td><td>None (clones)</td><td>High</td></tr>
+  </table>
+</div>
+
+<!-- ============ SECTION 09 ============ -->
+<div class="section-card" id="genetics">
+  <h2><span class="sec-num">09</span>Genetics &amp; Inheritance</h2>
+  <h3>Core Vocabulary</h3>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Gene</td><td>Segment of DNA that codes for a specific trait</td></tr>
+    <tr><td>Allele</td><td>Alternative forms of a gene (e.g., T and t)</td></tr>
+    <tr><td>Dominant</td><td>Allele expressed when one or two copies are present (T)</td></tr>
+    <tr><td>Recessive</td><td>Allele expressed only when homozygous (tt)</td></tr>
+    <tr><td>Homozygous</td><td>Two identical alleles (TT or tt); also called true-breeding</td></tr>
+    <tr><td>Heterozygous</td><td>Two different alleles (Tt); also called hybrid</td></tr>
+    <tr><td>Genotype</td><td>The allele combination an organism carries (TT, Tt, tt)</td></tr>
+    <tr><td>Phenotype</td><td>The observable trait (tall, short, purple, white)</td></tr>
+    <tr><td>Diploid (2n)</td><td>Cell with two sets of chromosomes</td></tr>
+    <tr><td>Haploid (n)</td><td>Cell with one set of chromosomes (gametes)</td></tr>
+    <tr><td>True-breeding</td><td>Homozygous organism that always produces offspring like itself</td></tr>
+    <tr><td>Hybrid</td><td>Heterozygous offspring of two different true-breeding parents</td></tr>
+  </table>
+  <h3>Mendel's Laws</h3>
+  <p>The Law of Segregation states that two alleles for each gene separate during gamete formation, so each gamete carries only one allele. The Law of Independent Assortment states that genes on different chromosomes sort independently during meiosis.</p>
+  <h3>Cross Types and Expected Ratios</h3>
+  <div class="formula-box">
+    <div class="formula-label">Punnett Square Ratios</div>
+    <code>Monohybrid (Tt &times; Tt): 3:1 phenotypic, 1:2:1 genotypic</code>
+    <br><code>Dihybrid (TtBb &times; TtBb): 9:3:3:1 phenotypic</code>
+    <br><code>Testcross (Tt &times; tt): 1:1 phenotypic</code>
+  </div>
+  <h3>Beyond Simple Dominance</h3>
+  <table class="fact-table">
+    <tr><th>Pattern</th><th>Description</th><th>Example</th></tr>
+    <tr><td>Complete dominance</td><td>Heterozygote looks like homozygous dominant</td><td>Tt = tall (same as TT)</td></tr>
+    <tr><td>Incomplete dominance</td><td>Heterozygote is a blend</td><td>Red &times; White = Pink</td></tr>
+    <tr><td>Codominance</td><td>Both alleles fully expressed</td><td>AB blood type</td></tr>
+    <tr><td>Sex-linked</td><td>Gene on X chromosome</td><td>Color blindness, hemophilia</td></tr>
+  </table>
+  <h3>Probability &amp; Chi-Square</h3>
+  <p>Probability is used to predict genetic outcomes. The probability of two independent events both occurring is the product of their individual probabilities (multiplication rule).</p>
+  <div class="formula-box">
+    <div class="formula-label">Chi-Square Test</div>
+    <code>&chi;&sup2; = &Sigma; (observed - expected)&sup2; / expected</code>
+    <br><br>Degrees of freedom = number of categories - 1. Compare to critical value at p = 0.05. If &chi;&sup2; exceeds the critical value, reject the null hypothesis (observed and expected are significantly different).
+  </div>
+</div>
+
+<!-- ============ SECTION 10 ============ -->
+<div class="section-card" id="dna-molbio">
+  <h2><span class="sec-num">10</span>DNA, RNA &amp; Molecular Biology</h2>
+  <p>DNA (deoxyribonucleic acid) stores genetic information. RNA (ribonucleic acid) helps read and carry out those instructions. You need to know the structure of both, how they differ, the base-pairing rules, and the central dogma: DNA &rarr; RNA &rarr; Protein.</p>
+  <h3>Nucleotide Structure</h3>
+  <p>A nucleotide is the monomer of nucleic acids. Each has three parts: a phosphate group, a five-carbon sugar (deoxyribose in DNA, ribose in RNA), and a nitrogenous base. Purines (adenine, guanine) have two rings. Pyrimidines (thymine, cytosine, uracil) have one ring.</p>
+  <div class="mnemonic-box">
+    <div class="mnemonic-label">Base Pairing Rules</div>
+    <strong>DNA: A-T</strong> (2 H-bonds), <strong>G-C</strong> (3 H-bonds). <strong>RNA: A-U, G-C.</strong> "Apples in the Tree, Car in the Garage." In RNA, uracil replaces thymine.
+  </div>
+  <h3>DNA vs. RNA</h3>
+  <table class="fact-table">
+    <tr><th>Feature</th><th>DNA</th><th>RNA</th></tr>
+    <tr><td>Sugar</td><td>Deoxyribose</td><td>Ribose</td></tr>
+    <tr><td>Strands</td><td>Double-stranded</td><td>Single-stranded</td></tr>
+    <tr><td>Bases</td><td>A, T, G, C</td><td>A, U, G, C</td></tr>
+    <tr><td>Location</td><td>Nucleus (primarily)</td><td>Nucleus and cytoplasm</td></tr>
+    <tr><td>Function</td><td>Long-term genetic storage</td><td>Carries and translates genetic info</td></tr>
+  </table>
+  <h3>Central Dogma</h3>
+  <table class="fact-table">
+    <tr><th>Process</th><th>What Happens</th><th>Location</th><th>Key Enzyme/Structure</th></tr>
+    <tr><td>Replication</td><td>DNA &rarr; DNA (copying)</td><td>Nucleus</td><td>DNA polymerase</td></tr>
+    <tr><td>Transcription</td><td>DNA &rarr; mRNA (reading)</td><td>Nucleus</td><td>RNA polymerase</td></tr>
+    <tr><td>Translation</td><td>mRNA &rarr; Protein (building)</td><td>Ribosome (cytoplasm)</td><td>Ribosome, tRNA</td></tr>
+  </table>
+  <h3>The Genetic Code</h3>
+  <p>A codon is a three-base sequence on mRNA that codes for one amino acid. An anticodon is the complementary three-base sequence on tRNA. The start codon AUG codes for methionine and signals the beginning of translation. The stop codons (UAA, UAG, UGA) signal the ribosome to release the polypeptide. The genetic code is universal (nearly the same in all organisms), redundant (multiple codons can code for the same amino acid), and non-overlapping (codons are read sequentially without sharing bases).</p>
+  <p>A gene is a segment of DNA that contains the instructions for making one protein (or functional RNA). A peptide bond links amino acids together during translation.</p>
+</div>
+
+<!-- ============ SECTION 11 ============ -->
+<div class="section-card" id="dna-tech">
+  <h2><span class="sec-num">11</span>DNA Technology &amp; Recombination</h2>
+  <p>Modern molecular biology labs involve manipulating DNA in ways that go beyond basic replication and transcription. You need to understand how DNA recombination occurs naturally, how bacteria exchange genes, and the tools scientists use to study and manipulate DNA.</p>
+  <h3>DNA Recombination &amp; Bacterial Conjugation</h3>
+  <table class="fact-table">
+    <tr><th>Process</th><th>Description</th></tr>
+    <tr><td>Genetic recombination</td><td>Rearrangement of DNA sequences to produce new combinations of genes. In eukaryotes, crossing over during meiosis is the main mechanism.</td></tr>
+    <tr><td>Bacterial conjugation</td><td>Transfer of genetic material (usually a plasmid) from one bacterium to another through a pilus (a direct cell-to-cell bridge). This is horizontal gene transfer and a major way antibiotic resistance spreads.</td></tr>
+    <tr><td>Transformation</td><td>A bacterium picks up free DNA from the environment and incorporates it into its genome.</td></tr>
+    <tr><td>Transduction</td><td>A bacteriophage (virus) accidentally carries bacterial DNA from one cell to another.</td></tr>
+  </table>
+  <h3>Key Tools of DNA Technology</h3>
+  <table class="fact-table">
+    <tr><th>Tool / Concept</th><th>Definition</th></tr>
+    <tr><td>Plasmid</td><td>Small, circular DNA molecule in bacteria, separate from chromosomal DNA. Can replicate independently. Used as a vector in genetic engineering.</td></tr>
+    <tr><td>Vector</td><td>A vehicle (usually a plasmid or virus) used to carry foreign DNA into a host cell for cloning or expression.</td></tr>
+    <tr><td>Restriction enzyme</td><td>Enzyme that cuts DNA at specific recognition sequences. Creates fragments that can be separated or recombined.</td></tr>
+    <tr><td>Gel electrophoresis</td><td>Technique that separates DNA fragments by size. Smaller fragments travel farther. DNA migrates toward the positive electrode because of its negatively charged phosphate backbone.</td></tr>
+    <tr><td>Molecular probe</td><td>A short, single-stranded piece of DNA or RNA with a known sequence, labeled with a fluorescent or radioactive tag. Used to detect a specific complementary sequence in a sample (hybridization).</td></tr>
+    <tr><td>DNA sequencing</td><td>Determining the exact order of nucleotide bases (A, T, G, C) in a DNA molecule. Sanger sequencing and next-generation sequencing are common methods.</td></tr>
+    <tr><td>PCR (Polymerase Chain Reaction)</td><td>Technique that rapidly copies a specific DNA segment, producing millions of copies from a tiny sample. Uses heat cycling and DNA polymerase.</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Lab connection:</strong> In a DNA extraction lab, you use detergent (to break cell and nuclear membranes), salt (to clump proteins and help DNA precipitate), and cold ethanol (DNA is insoluble in cold alcohol, so it precipitates as visible white threads). Gel electrophoresis then separates extracted or digested DNA fragments by size.
+  </div>
+</div>
+
+<!-- ============ SECTION 12 ============ -->
+<div class="section-card" id="evolution">
+  <h2><span class="sec-num">12</span>Evolution &amp; Natural Selection</h2>
+  <p>Evolution is the change in allele frequencies in a population over time. Natural selection is the primary mechanism: individuals with traits better suited to the environment survive and reproduce at higher rates, passing those traits on.</p>
+  <h3>Key Definitions</h3>
+  <table class="fact-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Evolution</td><td>Change in allele frequencies in a population over generations</td></tr>
+    <tr><td>Natural selection</td><td>Differential survival and reproduction based on heritable traits</td></tr>
+    <tr><td>Population</td><td>Group of individuals of the same species living in the same area</td></tr>
+    <tr><td>Species</td><td>Group of organisms that can interbreed and produce fertile offspring</td></tr>
+    <tr><td>Fossil</td><td>Preserved remains or traces of organisms from the past; provides evidence for evolution</td></tr>
+  </table>
+  <h3>How Natural Selection Works</h3>
+  <p>Four conditions are required: variation exists within the population, some of that variation is heritable, more offspring are produced than can survive (overproduction), and individuals with advantageous traits survive and reproduce more (differential reproduction). Over generations, allele frequencies shift and the advantageous traits become more common.</p>
+  <div class="highlight-box">
+    <strong>Natural selection acts on phenotypes, not genotypes.</strong> The environment determines which phenotypes are favored. Over time, this changes the genetic makeup of the population. Natural selection does not act on individuals; individuals do not evolve. Populations evolve.
+  </div>
+  <h3>Evidence for Evolution</h3>
+  <table class="fact-table">
+    <tr><th>Evidence Type</th><th>Explanation</th></tr>
+    <tr><td>Fossil record</td><td>Shows change over time and transitional forms</td></tr>
+    <tr><td>Comparative anatomy</td><td>Homologous structures (same structure, different function) indicate common ancestry</td></tr>
+    <tr><td>Embryology</td><td>Similar early development across species (e.g., vertebrate gill slits)</td></tr>
+    <tr><td>Molecular biology</td><td>DNA and protein sequence similarities correlate with evolutionary relatedness</td></tr>
+    <tr><td>Biogeography</td><td>Geographic distribution of species matches evolutionary predictions</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================== -->
+<!-- =================== INTERACTIVE SECTIONS ===================== -->
+<!-- ============================================================== -->
+
+<div class="interactive-section" id="quiz">
+  <h2>Multiple Choice Quiz</h2>
+  <div class="quiz-progress">
+    <span>Question <span id="qCur">1</span> of <span id="qTot">30</span></span>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qBar"></div></div>
+    <span class="quiz-score">Score: <span id="qScore">0</span></span>
+  </div>
+  <div id="qArea"></div>
+  <div class="quiz-nav">
+    <button class="quiz-btn" id="qSubmit" onclick="qCheck()">Check Answer</button>
+    <button class="quiz-btn" id="qNext" onclick="qAdvance()" style="display:none">Next Question</button>
+  </div>
+</div>
+
+<div class="interactive-section" id="flashcards">
+  <h2>Flashcards</h2>
+  <div class="fc-filters" id="fcFilters"></div>
+  <div class="fc-container">
+    <div class="fc-card-wrapper" onclick="fcFlip()">
+      <div class="fc-card" id="fcCard">
+        <div class="fc-front"><span class="fc-category" id="fcCat"></span><p id="fcQ"></p></div>
+        <div class="fc-back"><p id="fcA"></p></div>
+      </div>
+    </div>
+    <div class="fc-controls">
+      <button class="fc-nav-btn" onclick="fcPrev()">&larr; Prev</button>
+      <span class="fc-counter"><span id="fcIdx">1</span> / <span id="fcTot">0</span></span>
+      <button class="fc-nav-btn" onclick="fcNext()">Next &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<div class="interactive-section" id="short-answer">
+  <h2>Short Answer Practice</h2>
+  <p style="color:var(--text-muted);margin-bottom:1.5rem">Answer in your own words. The grader checks for key concepts, not exact wording.</p>
+  <div id="saArea"></div>
+  <button class="quiz-btn" onclick="saGradeAll()" style="margin-top:1rem">Grade All Answers</button>
+</div>
+
+</div><!-- end container -->
+
+<button class="back-to-top" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+
+<script>
+// ============ QUIZ DATA ============
+const QD=[
+{q:"What is the correct order of the scientific method?",o:["Hypothesis, Observation, Experiment, Conclusion","Observation, Question, Hypothesis, Experiment, Data, Conclusion","Question, Theory, Law, Experiment","Experiment, Data, Hypothesis, Theory"],a:1,e:"It starts with observation, then question, hypothesis, experiment, data analysis, and conclusion."},
+{q:"The purpose of an experiment is to:",o:["Prove a hypothesis correct","Test a hypothesis under controlled conditions","Observe nature without interference","Establish a new scientific law"],a:1,e:"Experiments test hypotheses under controlled conditions. Science never 'proves' a hypothesis; it supports or rejects it."},
+{q:"Which piece of equipment is most accurate for measuring 25.0 mL of liquid?",o:["Beaker","Erlenmeyer flask","Graduated cylinder","Test tube"],a:2,e:"Graduated cylinders are designed for precise volume measurement. Beakers and flasks show approximate volumes only."},
+{q:"Density is calculated as:",o:["Volume / Mass","Mass x Volume","Mass / Volume","Weight / Area"],a:2,e:"Density = Mass / Volume, typically in units of g/mL or g/cm3."},
+{q:"What does 'parfocal' mean on a microscope?",o:["The image is always centered","The specimen stays roughly in focus when switching objectives","The light adjusts automatically","The magnification is fixed"],a:1,e:"Parfocal means the specimen stays approximately in focus when you rotate to a different objective lens."},
+{q:"To make a wet mount, you lower the coverslip at an angle to:",o:["Increase magnification","Trap the specimen","Minimize air bubbles","Stain the specimen"],a:2,e:"Lowering the coverslip at ~45 degrees allows water to spread evenly and prevents air bubbles from being trapped."},
+{q:"Which microscope type is best for viewing living, unstained cells?",o:["Compound light","Phase-contrast","SEM","TEM"],a:1,e:"Phase-contrast microscopy converts phase differences in light to contrast differences, allowing you to see living, unstained cells clearly."},
+{q:"Which indicator turns blue-black in the presence of starch?",o:["Benedict's","Biuret","Iodine (IKI)","Sudan IV"],a:2,e:"Iodine turns blue-black with starch. Benedict's tests sugars (heat required), Biuret tests protein, Sudan IV tests lipids."},
+{q:"A calorie is defined as the energy needed to:",o:["Burn 1 gram of fat","Raise 1 kg of water by 1 degree C","Break one peptide bond","Synthesize one glucose molecule"],a:1,e:"One dietary Calorie (kilocalorie) is the energy required to raise 1 kg of water by 1 degree Celsius."},
+{q:"Which macromolecule contains both nitrogen and phosphorus?",o:["Carbohydrates","Lipids","Proteins","Nucleic acids"],a:3,e:"Nucleic acids (DNA/RNA) contain C, H, O, N, and P. Proteins have N but not P. Carbs and lipids have only C, H, O."},
+{q:"What bond joins amino acids together?",o:["Glycosidic bond","Hydrogen bond","Peptide bond","Phosphodiester bond"],a:2,e:"Amino acids are linked by peptide bonds formed via dehydration synthesis between the amino and carboxyl groups."},
+{q:"Cyanobacteria are significant because they:",o:["Are eukaryotic algae","Perform photosynthesis despite being prokaryotes","Have chloroplasts","Cannot survive without oxygen"],a:1,e:"Cyanobacteria are prokaryotes that perform photosynthesis using thylakoid membranes in their cytoplasm, not chloroplasts."},
+{q:"Cytoplasmic streaming is:",o:["Cell division","Movement of cytoplasm and organelles within a cell","Diffusion across a membrane","Phagocytosis"],a:1,e:"Cytoplasmic streaming is the directed flow of cytoplasm visible in cells like Elodea, driven by actin microfilaments."},
+{q:"Which organelle has its own DNA, supporting endosymbiotic theory?",o:["Golgi apparatus","Lysosome","Ribosome","Mitochondria"],a:3,e:"Mitochondria and chloroplasts have their own circular DNA, 70S ribosomes, and double membranes, supporting endosymbiosis."},
+{q:"A red blood cell in a hypotonic solution will:",o:["Shrink (crenate)","Stay the same","Swell and possibly burst (lyse)","Undergo plasmolysis"],a:2,e:"Hypotonic = less solute outside, so water enters by osmosis. Animal cells swell and may lyse."},
+{q:"Active transport differs from passive transport because it:",o:["Moves molecules down the gradient","Requires no membrane","Requires ATP energy","Only moves water"],a:2,e:"Active transport uses ATP to move molecules against the concentration gradient (low to high)."},
+{q:"An enzyme speeds up a reaction by:",o:["Increasing temperature","Lowering the activation energy","Adding substrate","Changing the products"],a:1,e:"Enzymes lower the activation energy barrier so the reaction proceeds faster."},
+{q:"What happens to an enzyme at extreme pH or temperature?",o:["It works faster","It denatures and loses function","It gains a new active site","It permanently gains substrate"],a:1,e:"Extreme conditions disrupt H-bonds and other forces maintaining 3D shape. The enzyme denatures and can no longer bind substrate."},
+{q:"During which phase of the cell cycle does DNA replication occur?",o:["G1","S phase","G2","Mitosis"],a:1,e:"DNA replication occurs during the S (synthesis) phase of interphase."},
+{q:"During which phase of mitosis do chromosomes line up at the metaphase plate?",o:["Prophase","Metaphase","Anaphase","Telophase"],a:1,e:"Metaphase = middle. Chromosomes align at the cell's equator."},
+{q:"How many cells result from meiosis, and what is their ploidy?",o:["2 diploid","2 haploid","4 diploid","4 haploid"],a:3,e:"Meiosis involves two divisions producing 4 genetically unique haploid (n) cells."},
+{q:"In a monohybrid cross Tt x Tt, what fraction of offspring are expected to be tt?",o:["0","1/4","1/2","3/4"],a:1,e:"Punnett square gives TT:Tt:tt = 1:2:1. So 1/4 are homozygous recessive (tt)."},
+{q:"Incomplete dominance is demonstrated when:",o:["One allele completely masks the other","Both alleles are fully expressed simultaneously","The heterozygote shows a blended phenotype","A gene is located on the X chromosome"],a:2,e:"Incomplete dominance produces an intermediate/blended phenotype in the heterozygote (e.g., red x white = pink)."},
+{q:"In DNA, adenine pairs with _____ and guanine pairs with _____.",o:["Cytosine; thymine","Uracil; cytosine","Thymine; cytosine","Guanine; adenine"],a:2,e:"A pairs with T (2 H-bonds), G pairs with C (3 H-bonds). In RNA, U replaces T."},
+{q:"Transcription produces:",o:["A copy of DNA","mRNA from a DNA template","Protein from mRNA","A plasmid"],a:1,e:"Transcription uses RNA polymerase to read a DNA template strand and produce a complementary mRNA molecule."},
+{q:"What is a plasmid?",o:["A eukaryotic chromosome","A small circular DNA molecule in bacteria","A type of RNA","A viral protein coat"],a:1,e:"A plasmid is a small, circular DNA molecule separate from the bacterial chromosome. It replicates independently and is used as a vector in genetic engineering."},
+{q:"During bacterial conjugation, DNA is transferred via:",o:["The air","A pilus","Endocytosis","A virus"],a:1,e:"Conjugation transfers DNA (usually a plasmid) between bacteria through a pilus, a direct cell-to-cell bridge."},
+{q:"In gel electrophoresis, smaller DNA fragments:",o:["Stay near the wells","Travel farther from the wells","Move toward the negative electrode","Do not move at all"],a:1,e:"Smaller fragments encounter less resistance and travel farther through the gel toward the positive electrode."},
+{q:"A molecular probe is used to:",o:["Cut DNA at specific sites","Detect a specific DNA sequence by complementary binding","Amplify DNA","Measure enzyme activity"],a:1,e:"A molecular probe is a labeled single-stranded DNA/RNA that hybridizes (binds) to its complementary target sequence."},
+{q:"Natural selection acts on:",o:["Genotypes directly","Individual organisms causing them to evolve","Phenotypes within a population","DNA sequences in the lab"],a:2,e:"Natural selection acts on phenotypes. Individuals do not evolve; populations evolve as allele frequencies change over generations."}
+];
+
+// ============ FLASHCARD DATA ============
+const FD=[
+{cat:"Sci Method",q:"Independent variable?",a:"The variable the experimenter intentionally changes or manipulates."},
+{cat:"Sci Method",q:"Dependent variable?",a:"The variable measured or observed in response to changes in the independent variable."},
+{cat:"Sci Method",q:"Theory vs. hypothesis?",a:"A hypothesis is a testable prediction. A theory is a well-supported explanation backed by extensive evidence."},
+{cat:"Sci Method",q:"What is a negative control?",a:"A group receiving no treatment, expected to show no response. Establishes a baseline for comparison."},
+{cat:"Sci Method",q:"Purpose of an experiment?",a:"To test a hypothesis under controlled conditions so cause-and-effect relationships can be identified."},
+{cat:"Measurement",q:"Density formula?",a:"Density = Mass / Volume. Units: g/mL or g/cm3. Water = 1.0 g/mL."},
+{cat:"Measurement",q:"Graduated cylinder vs. beaker?",a:"Graduated cylinders measure precise volumes. Beakers are for approximate volumes, mixing, and holding liquids."},
+{cat:"Measurement",q:"Where to read a graduated cylinder?",a:"At the bottom of the meniscus, at eye level."},
+{cat:"Measurement",q:"What does a micropipette measure?",a:"Very precise small volumes in the microliter (uL) range."},
+{cat:"Measurement",q:"Advantages of the metric system?",a:"Based on powers of 10, universal, simple conversions, consistent across all sciences."},
+{cat:"Microscopy",q:"Total magnification formula?",a:"Ocular lens power x Objective lens power. Standard ocular = 10x."},
+{cat:"Microscopy",q:"What does parfocal mean?",a:"Specimen stays roughly in focus when switching between objective lenses."},
+{cat:"Microscopy",q:"What does parcentral mean?",a:"Specimen stays roughly centered when switching between objective lenses."},
+{cat:"Microscopy",q:"Resolving power?",a:"Ability to distinguish two close objects as separate. Higher resolution = clearer, more detailed image."},
+{cat:"Microscopy",q:"Phase-contrast microscope?",a:"Converts phase differences in light to visible contrast. Used for living, unstained cells."},
+{cat:"Microscopy",q:"How to make a wet mount?",a:"Place specimen in water drop on slide. Lower coverslip at 45-degree angle to minimize air bubbles."},
+{cat:"Microscopy",q:"As magnification increases, what happens?",a:"Field of view decreases, image dims, working distance decreases, depth of field decreases."},
+{cat:"Microscopy",q:"Why start on the lowest objective?",a:"Greatest working distance, avoids cracking the slide. Use coarse focus only on low power."},
+{cat:"Biomolecules",q:"Four classes of macromolecules?",a:"Carbohydrates, lipids, proteins, nucleic acids."},
+{cat:"Biomolecules",q:"Benedict's test detects?",a:"Simple (reducing) sugars. Blue to orange/red when heated."},
+{cat:"Biomolecules",q:"Biuret test detects?",a:"Protein (peptide bonds). Blue to purple/violet."},
+{cat:"Biomolecules",q:"Iodine test detects?",a:"Starch. Yellow-brown to blue-black."},
+{cat:"Biomolecules",q:"Dehydration synthesis vs. hydrolysis?",a:"Dehydration: removes water, joins monomers. Hydrolysis: adds water, breaks polymers."},
+{cat:"Biomolecules",q:"Saturated vs. unsaturated fats?",a:"Saturated: no double bonds, straight, solid. Unsaturated: double bonds, kinked, liquid."},
+{cat:"Biomolecules",q:"What causes protein denaturation?",a:"Extreme heat, pH, or heavy metals destroy 3D shape. Peptide bonds stay intact."},
+{cat:"Biomolecules",q:"What is a calorie?",a:"Energy to raise 1 kg of water by 1 degree C. Carbs/protein = ~4 kcal/g, fat = ~9 kcal/g."},
+{cat:"Biomolecules",q:"Vitamin vs. mineral?",a:"Vitamins are organic molecules needed in small amounts. Minerals are inorganic elements (Ca, Fe, K)."},
+{cat:"Cells",q:"Three parts of cell theory?",a:"All living things are made of cells. Cells are the basic unit of life. All cells come from pre-existing cells."},
+{cat:"Cells",q:"Prokaryotic vs. eukaryotic?",a:"Prokaryotes: no nucleus, no membrane-bound organelles. Eukaryotes: membrane-bound nucleus and organelles."},
+{cat:"Cells",q:"Three things plant cells have that animal cells lack?",a:"Cell wall (cellulose), chloroplasts, large central vacuole."},
+{cat:"Cells",q:"What are cyanobacteria?",a:"Photosynthetic prokaryotes (not true algae). Have thylakoids in cytoplasm but no chloroplasts."},
+{cat:"Cells",q:"What is cytoplasmic streaming?",a:"Directed flow of cytoplasm within a cell, visible as moving chloroplasts in Elodea. Driven by actin/motor proteins."},
+{cat:"Cells",q:"Endosymbiotic theory evidence?",a:"Mitochondria/chloroplasts have own circular DNA, 70S ribosomes, double membranes, divide by binary fission."},
+{cat:"Cells",q:"Golgi apparatus function?",a:"Modifies, sorts, packages, and ships proteins and lipids."},
+{cat:"Transport",q:"Define osmosis.",a:"Diffusion of water across a selectively permeable membrane toward higher solute concentration."},
+{cat:"Transport",q:"Hypotonic, isotonic, hypertonic?",a:"Hypo: less solute outside (water in). Iso: equal. Hyper: more solute outside (water out)."},
+{cat:"Transport",q:"What is plasmolysis?",a:"Plant cell membrane pulls away from the cell wall in a hypertonic solution."},
+{cat:"Transport",q:"Active transport vs. passive?",a:"Passive: no energy, down gradient. Active: requires ATP, against gradient."},
+{cat:"Enzymes",q:"What is the active site?",a:"Region on an enzyme where the substrate binds. Shape is specific to the substrate."},
+{cat:"Enzymes",q:"Enzyme-substrate complex?",a:"Temporary structure formed when substrate binds the active site. Products are released, enzyme is reused."},
+{cat:"Enzymes",q:"Competitive vs. noncompetitive inhibitor?",a:"Competitive: blocks active site. Noncompetitive: binds allosteric site, changes enzyme shape."},
+{cat:"Enzymes",q:"Effect of temperature on enzymes?",a:"Rate increases to optimum (~37C for humans), then drops as enzyme denatures."},
+{cat:"Cell Cycle",q:"Phases of mitosis?",a:"Prophase, Metaphase, Anaphase, Telophase (PMAT), then cytokinesis."},
+{cat:"Cell Cycle",q:"When does DNA replicate?",a:"During S phase of interphase, before division."},
+{cat:"Cell Cycle",q:"Mitosis: result?",a:"2 genetically identical diploid daughter cells. For growth and repair."},
+{cat:"Cell Cycle",q:"Meiosis: result?",a:"4 genetically unique haploid cells. For gamete production."},
+{cat:"Cell Cycle",q:"Cytokinesis: animal vs. plant?",a:"Animal: cleavage furrow. Plant: cell plate."},
+{cat:"Genetics",q:"Genotype vs. phenotype?",a:"Genotype = allele combination (TT, Tt, tt). Phenotype = observable trait (tall, short)."},
+{cat:"Genetics",q:"Monohybrid cross Tt x Tt ratio?",a:"Phenotypic: 3:1. Genotypic: 1:2:1."},
+{cat:"Genetics",q:"Incomplete dominance?",a:"Heterozygote shows blended phenotype (red x white = pink)."},
+{cat:"Genetics",q:"Codominance?",a:"Both alleles fully expressed (AB blood type)."},
+{cat:"Genetics",q:"Chi-square test purpose?",a:"Compare observed to expected ratios. If chi-square > critical value, reject null hypothesis."},
+{cat:"DNA & Mol Bio",q:"Chargaff's rule?",a:"A = T and G = C in double-stranded DNA."},
+{cat:"DNA & Mol Bio",q:"Start codon?",a:"AUG (codes for methionine, signals start of translation)."},
+{cat:"DNA & Mol Bio",q:"Stop codons?",a:"UAA, UAG, UGA. Signal ribosome to release the polypeptide."},
+{cat:"DNA & Mol Bio",q:"Purine vs. pyrimidine?",a:"Purines (A, G) have 2 rings. Pyrimidines (T, C, U) have 1 ring."},
+{cat:"DNA Tech",q:"What is a plasmid?",a:"Small circular DNA in bacteria, separate from chromosome. Replicates independently. Used as vector in genetic engineering."},
+{cat:"DNA Tech",q:"Bacterial conjugation?",a:"Transfer of DNA (usually a plasmid) between bacteria via a pilus. Horizontal gene transfer."},
+{cat:"DNA Tech",q:"What is a vector?",a:"Vehicle (plasmid or virus) used to carry foreign DNA into a host cell."},
+{cat:"DNA Tech",q:"Molecular probe?",a:"Labeled single-stranded DNA/RNA that binds its complementary sequence. Used to detect specific genes."},
+{cat:"DNA Tech",q:"Gel electrophoresis?",a:"Separates DNA fragments by size. Smaller = farther. DNA runs toward positive electrode (negative phosphate backbone)."},
+{cat:"DNA Tech",q:"DNA sequencing?",a:"Determining the exact order of A, T, G, C bases in a DNA molecule."},
+{cat:"Evolution",q:"Define evolution.",a:"Change in allele frequencies in a population over time."},
+{cat:"Evolution",q:"Four requirements of natural selection?",a:"Variation, heritability, overproduction, differential survival/reproduction."},
+{cat:"Evolution",q:"Species definition?",a:"Group of organisms that can interbreed and produce fertile offspring."},
+{cat:"Evolution",q:"What does natural selection act on?",a:"Phenotypes. Individuals don't evolve; populations evolve."},
+{cat:"Evolution",q:"What is a fossil?",a:"Preserved remains or traces of past organisms. Evidence for evolutionary change over time."}
+];
+
+// ============ SHORT ANSWER DATA ============
+const SA=[
+{q:"Describe the steps of the scientific method and explain the roles of the independent variable, dependent variable, and controls in an experiment.",
+concepts:[
+  {term:"observation",synonyms:["observ"],weight:1},
+  {term:"hypothesis",synonyms:["hypothesis","if.*then","testable"],weight:2},
+  {term:"experiment",synonyms:["experiment","test"],weight:1},
+  {term:"data / conclusion",synonyms:["data","conclusion","analys"],weight:1},
+  {term:"independent variable",synonyms:["independent","you change","manipulat"],weight:2},
+  {term:"dependent variable",synonyms:["dependent","you measure","response"],weight:2},
+  {term:"control group",synonyms:["control","baseline","no treatment"],weight:2},
+  {term:"constants",synonyms:["constant","same","controlled variable"],weight:1}
+],model:"The scientific method begins with an observation, followed by a question and a testable hypothesis (often in if/then format). An experiment is designed with an independent variable (what the experimenter changes), a dependent variable (what is measured in response), and constants (everything kept the same). A control group receives no treatment and serves as a baseline. Data are collected, analyzed, and a conclusion is drawn that either supports or fails to support the hypothesis."},
+{q:"Compare and contrast the compound light microscope, phase-contrast microscope, TEM, and SEM. Include what each is used for and its key advantage.",
+concepts:[
+  {term:"compound light",synonyms:["compound","light microscope","visible light"],weight:2},
+  {term:"phase-contrast",synonyms:["phase-contrast","phase contrast","living.*unstained"],weight:2},
+  {term:"TEM",synonyms:["tem","transmission electron","internal","ultrastructure","2d"],weight:2},
+  {term:"SEM",synonyms:["sem","scanning electron","surface","3d"],weight:2},
+  {term:"magnification comparison",synonyms:["1000","500,000","higher magnif"],weight:1}
+],model:"A compound light microscope uses visible light and magnifies up to ~1000x; it is the most common lab microscope for viewing stained or living thin sections. A phase-contrast microscope converts phase differences in light into visible contrast, making it ideal for living, unstained cells. A TEM sends electrons through a specimen to reveal internal ultrastructure in 2D at up to 500,000x. An SEM bounces electrons off a surface to produce detailed 3D images of external features."},
+{q:"Compare the four macromolecules: their monomers, elements, functions, and how you test for them in the lab.",
+concepts:[
+  {term:"carbohydrates",synonyms:["carbohydrat","monosaccharide","sugar"],weight:2},
+  {term:"lipids",synonyms:["lipid","glycerol","fatty acid","triglycerid"],weight:2},
+  {term:"proteins",synonyms:["protein","amino acid","peptide"],weight:2},
+  {term:"nucleic acids",synonyms:["nucleic acid","nucleotide","dna","rna"],weight:2},
+  {term:"lab tests",synonyms:["benedict","iodine","biuret","sudan","paper bag"],weight:2},
+  {term:"elements (N, P)",synonyms:["nitrogen","phosphorus","c.*h.*o"],weight:1}
+],model:"Carbohydrates are made of monosaccharides (C,H,O), provide quick energy and structure; tested with Benedict's (sugars) and iodine (starch). Lipids are glycerol + fatty acids (C,H,O), store long-term energy and form membranes; tested with Sudan IV or brown paper bag. Proteins are chains of amino acids (C,H,O,N,S) linked by peptide bonds, function as enzymes, structural components, and transporters; tested with Biuret (turns purple). Nucleic acids are nucleotides (C,H,O,N,P), store genetic information; tested with Dische diphenylamine."},
+{q:"Compare prokaryotic and eukaryotic cells. Include at least four differences and give examples of each.",
+concepts:[
+  {term:"nucleus",synonyms:["nucleus","nucleoid","no nucleus","membrane-bound nucleus"],weight:2},
+  {term:"organelles",synonyms:["organelle","membrane-bound","no membrane"],weight:2},
+  {term:"DNA structure",synonyms:["circular","linear","chromosome"],weight:1},
+  {term:"size",synonyms:["1-10","10-100","smaller","larger"],weight:1},
+  {term:"ribosomes",synonyms:["70s","80s","ribosom"],weight:1},
+  {term:"examples",synonyms:["bacteri","archaea","animal","plant","fungi","protist","cyanobact"],weight:2}
+],model:"Prokaryotic cells lack a membrane-bound nucleus (DNA is in a nucleoid region), have no membrane-bound organelles, are smaller (1-10 um), have circular DNA, and 70S ribosomes. Examples: bacteria, archaea, cyanobacteria. Eukaryotic cells have a membrane-bound nucleus, many membrane-bound organelles (mitochondria, ER, Golgi), are larger (10-100 um), have linear chromosomes, and 80S ribosomes. Examples: animals, plants, fungi, protists."},
+{q:"Explain the difference between hypotonic, isotonic, and hypertonic solutions and what happens to animal and plant cells in each.",
+concepts:[
+  {term:"hypotonic",synonyms:["hypotonic","less solute outside"],weight:2},
+  {term:"water moves in",synonyms:["water enters","water in","water moves in"],weight:2},
+  {term:"lysis (animal)",synonyms:["lyse","lysis","burst","swell"],weight:1},
+  {term:"turgid (plant)",synonyms:["turgid","turgor","firm"],weight:1},
+  {term:"hypertonic",synonyms:["hypertonic","more solute outside"],weight:2},
+  {term:"water moves out",synonyms:["water leaves","water out","loses water"],weight:2},
+  {term:"crenation (animal)",synonyms:["crenat","shrivel","shrink"],weight:1},
+  {term:"plasmolysis (plant)",synonyms:["plasmoly","pulls away"],weight:1},
+  {term:"isotonic",synonyms:["isotonic","equal solute"],weight:1}
+],model:"Hypotonic: less solute outside, water moves into cell. Animal cell swells/may lyse. Plant cell becomes turgid (ideal). Isotonic: equal solute, no net water movement. Animal cell is normal; plant cell is flaccid. Hypertonic: more solute outside, water moves out. Animal cell crenates (shrivels). Plant cell undergoes plasmolysis (membrane pulls from wall)."},
+{q:"Define enzyme, catalyst, activation energy, substrate, active site, enzyme-substrate complex, product, and enzyme specificity. Then explain how temperature and pH affect enzyme activity.",
+concepts:[
+  {term:"catalyst/enzyme",synonyms:["catalyst","speeds up","biological catalyst"],weight:2},
+  {term:"activation energy",synonyms:["activation energy","lower.*energy"],weight:2},
+  {term:"substrate + active site",synonyms:["substrate","active site","lock and key","induced fit"],weight:2},
+  {term:"ES complex",synonyms:["enzyme-substrate","es complex"],weight:1},
+  {term:"specificity",synonyms:["specific","one substrate","particular"],weight:1},
+  {term:"temperature effect",synonyms:["temperature","37","denatur.*heat","optimum"],weight:2},
+  {term:"pH effect",synonyms:["ph","acid","base","optimum ph"],weight:1}
+],model:"An enzyme is a biological catalyst (protein) that speeds up reactions by lowering activation energy. The substrate binds the active site, forming an enzyme-substrate complex, then product is released and the enzyme is reused. Enzyme specificity means each enzyme fits only its particular substrate(s). Temperature increases rate up to an optimum (~37C for humans); beyond that, the enzyme denatures. pH also has an optimum; extremes denature the enzyme. Denaturation means loss of 3D shape and function."},
+{q:"Describe DNA structure, the base-pairing rules, and explain the three processes of the central dogma: replication, transcription, and translation.",
+concepts:[
+  {term:"double helix / nucleotide",synonyms:["double helix","nucleotide","phosphate","sugar","base"],weight:1},
+  {term:"base pairing",synonyms:["a.*t","adenine.*thymine","g.*c","guanine.*cytosine","complementary"],weight:2},
+  {term:"replication",synonyms:["replication","dna to dna","dna polymerase"],weight:2},
+  {term:"transcription",synonyms:["transcription","dna to.*rna","rna polymerase"],weight:2},
+  {term:"translation",synonyms:["translation","mrna to protein","ribosome","trna","codon","amino acid"],weight:2},
+  {term:"codon / anticodon",synonyms:["codon","anticodon","aug","start","stop"],weight:1}
+],model:"DNA is a double helix of nucleotides (phosphate + deoxyribose + base). Base pairing: A-T (2 H-bonds), G-C (3 H-bonds). In RNA, U replaces T. Replication (DNA to DNA) uses DNA polymerase in the nucleus. Transcription (DNA to mRNA) uses RNA polymerase in the nucleus. Translation (mRNA to protein) occurs at ribosomes; tRNA delivers amino acids matched to mRNA codons. Start codon AUG begins translation; UAA, UAG, UGA stop it."},
+{q:"Explain how natural selection operates to alter the genetic makeup of a population over time. Include the four requirements.",
+concepts:[
+  {term:"variation",synonyms:["variation","differ","diverse"],weight:2},
+  {term:"heritable",synonyms:["heritab","inherited","passed","genetic"],weight:2},
+  {term:"overproduction",synonyms:["overproduc","more offspring","not all survive"],weight:2},
+  {term:"differential survival/reproduction",synonyms:["differential","better suited","surviv.*reproduc","fitness","advantag"],weight:2},
+  {term:"allele frequency change",synonyms:["allele frequenc","genetic makeup","population.*change","population.*evolv"],weight:2},
+  {term:"acts on phenotypes / populations",synonyms:["phenotype","population.*not individual"],weight:1}
+],model:"Natural selection requires four conditions: variation (individuals differ in traits), heritability (some variation is genetic), overproduction (more offspring than can survive), and differential survival/reproduction (individuals with advantageous traits are more likely to survive and pass on their alleles). Over generations, allele frequencies shift as beneficial alleles become more common, altering the genetic makeup of the population. Natural selection acts on phenotypes, not genotypes. Individuals do not evolve; populations do."}
+];
+
+// ============ QUIZ ENGINE ============
+let qI=0,qS=0,qDone=false;
+function qRender(){const d=QD[qI];let h='<div class="quiz-question"><p>'+(qI+1)+'. '+d.q+'</p><div class="quiz-options">';d.o.forEach((o,i)=>{h+='<label id="qo'+i+'"><input type="radio" name="q" value="'+i+'"> '+o+'</label>';});h+='</div><div class="quiz-explanation" id="qExp">'+d.e+'</div></div>';document.getElementById('qArea').innerHTML=h;document.getElementById('qCur').textContent=qI+1;document.getElementById('qTot').textContent=QD.length;document.getElementById('qBar').style.width=(qI/QD.length*100)+'%';document.getElementById('qSubmit').style.display='inline-block';document.getElementById('qNext').style.display='none';qDone=false;}
+function qCheck(){if(qDone)return;const s=document.querySelector('input[name="q"]:checked');if(!s)return;qDone=true;const v=+s.value,d=QD[qI];document.querySelectorAll('.quiz-options label').forEach(l=>l.style.pointerEvents='none');if(v===d.a){qS++;document.getElementById('qo'+v).classList.add('correct');}else{document.getElementById('qo'+v).classList.add('incorrect');document.getElementById('qo'+d.a).classList.add('correct');}document.getElementById('qScore').textContent=qS;document.getElementById('qExp').style.display='block';document.getElementById('qSubmit').style.display='none';if(qI<QD.length-1){document.getElementById('qNext').style.display='inline-block';}else{document.getElementById('qBar').style.width='100%';setTimeout(()=>{const p=Math.round(qS/QD.length*100);document.getElementById('qArea').innerHTML='<div class="quiz-result"><h3>Quiz Complete!</h3><p style="font-size:1.2rem;margin-bottom:.5rem">'+qS+' / '+QD.length+' ('+p+'%)</p><p style="color:var(--text-muted)">'+(p>=80?'Excellent work!':p>=60?'Good effort. Review the sections you missed.':'Keep studying and try again.')+'</p></div>';document.getElementById('qNext').style.display='none';},1200);}}
+function qAdvance(){qI++;qRender();}
+
+// ============ FLASHCARD ENGINE ============
+let fcF=[...FD],fcI=0;
+function fcRenderFilters(){const cats=[...new Set(FD.map(c=>c.cat))];let h='<button class="fc-filter-btn active" onclick="fcFilter(\'all\',this)">All</button>';cats.forEach(c=>{h+='<button class="fc-filter-btn" onclick="fcFilter(\''+c+'\',this)">'+c+'</button>';});document.getElementById('fcFilters').innerHTML=h;}
+function fcFilter(cat,btn){fcF=cat==='all'?[...FD]:FD.filter(c=>c.cat===cat);fcI=0;document.querySelectorAll('.fc-filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fcRender();}
+function fcRender(){if(!fcF.length)return;const c=fcF[fcI];document.getElementById('fcCat').textContent=c.cat;document.getElementById('fcQ').textContent=c.q;document.getElementById('fcA').textContent=c.a;document.getElementById('fcIdx').textContent=fcI+1;document.getElementById('fcTot').textContent=fcF.length;document.getElementById('fcCard').classList.remove('flipped');}
+function fcFlip(){document.getElementById('fcCard').classList.toggle('flipped');}
+function fcNext(){fcI=(fcI+1)%fcF.length;fcRender();}
+function fcPrev(){fcI=(fcI-1+fcF.length)%fcF.length;fcRender();}
+
+// ============ SHORT ANSWER ENGINE ============
+function saRender(){let h='';SA.forEach((item,i)=>{h+='<div class="sa-question"><p class="sa-prompt">'+(i+1)+'. '+item.q+'</p><textarea id="saI'+i+'" placeholder="Type your answer here..."></textarea><div class="sa-feedback" id="saFb'+i+'"><div class="sa-score-bar"><div class="sa-score-fill" id="saFill'+i+'"></div></div><div class="sa-score-text" id="saPct'+i+'"></div><div class="sa-tags" id="saTags'+i+'"></div><button class="sa-model-toggle" onclick="saToggle('+i+')">Show Model Answer</button><div class="sa-model-answer" id="saModel'+i+'">'+item.model+'</div></div></div>';});document.getElementById('saArea').innerHTML=h;}
+function saGradeAll(){SA.forEach((item,i)=>{const input=document.getElementById('saI'+i).value.toLowerCase();let earned=0,total=0,tags='';const wc=input.trim().split(/\s+/).filter(w=>w).length;item.concepts.forEach(c=>{total+=c.weight;let found=false;for(let s of c.synonyms){if(s.includes('.*')){try{if(new RegExp(s,'i').test(input)){found=true;break;}}catch(e){}}else if(input.includes(s.toLowerCase())){found=true;break;}}if(found){earned+=c.weight;tags+='<span class="sa-tag hit">'+c.term+'</span>';}else{tags+='<span class="sa-tag miss">'+c.term+'</span>';}});let bonus=0;if(wc>40)bonus=Math.min(0.1,((wc-40)/100)*0.1);let pct=Math.min(100,Math.round((earned/total+bonus)*100));const fill=document.getElementById('saFill'+i);fill.style.width=pct+'%';fill.style.background=pct>=70?'#4caf50':pct>=40?'#ff9800':'#e57373';document.getElementById('saPct'+i).textContent=pct+'% concept match';document.getElementById('saTags'+i).innerHTML=tags;document.getElementById('saFb'+i).style.display='block';});}
+function saToggle(i){const el=document.getElementById('saModel'+i);el.style.display=el.style.display==='block'?'none':'block';}
+
+// ============ BACK TO TOP ============
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('visible',window.scrollY>400);});
+
+// ============ INIT ============
+qRender();fcRenderFilters();fcRender();saRender();
+</script>
+</div>
+</body>
+</html>
